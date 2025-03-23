@@ -22,9 +22,9 @@
             }
         }
 
-        function registerDevice(int $recintoId, string $deviceId) {
+        function registerDevice(int $recintoId, int $idUser, string $deviceId) {
             try {
-                $query = sprintf("INSERT INTO recintos_devices (id_recinto, device_id) VALUES (%d, '%s')", $recintoId, $deviceId);
+                $query = sprintf("INSERT INTO recintos_devices (id_recinto, id_user, device_id) VALUES (%d, %d, '%s')", $recintoId, $idUser, $deviceId);
                 return $this->execQuery($query);
             } catch (\Throwable $th) {
                 echo $th;
